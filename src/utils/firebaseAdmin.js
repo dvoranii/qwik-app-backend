@@ -13,4 +13,20 @@ admin.initializeApp({
 
 const db = admin.firestore();
 
-export { db, admin };
+const saveContact = async (contact) => {
+  try {
+    const { name, email, message } = contact;
+    const docRef = await db.collection("contacts").add({
+      name,
+      email,
+      message,
+      createdAt: admin.firestore.FieldValue.serverTimestamp(),
+    });
+    return { id: docRef.id, message: "Contact saved successfully" };
+  } catch (error) {
+    console.error("Error adding contact:", error);
+    throw new Error("Internal Server Error");
+  }
+};
+
+export { db, admin, saveContact };
