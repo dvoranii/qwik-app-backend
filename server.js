@@ -1,5 +1,5 @@
 import express from "express";
-import { db, admin, saveContact } from "./src/utils/firebaseAdmin.js";
+import { saveContact } from "./src/utils/firebaseAdmin.js";
 
 const app = express();
 const port = process.env.PORT || 3000;

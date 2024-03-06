@@ -29,4 +29,4 @@ const saveContact = async (contact) => {
   }
 };
 
-export { db, admin, saveContact };
+export { saveContact };
